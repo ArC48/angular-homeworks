@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
       [Validators.required,
         Validators.minLength(8),
         Validators.pattern(/^[a-z][a-z0-9]*$/i)]],
-      'confirm password' : ['', [Validators.required]],
+      'confirm_password' : ['', [Validators.required]],
       'Nickname' : ['', [Validators.required,
         Validators.pattern(/^[A-Za-z0-9-]+$/)]],
       'Phone' : ['', [Validators.required,
@@ -32,7 +32,46 @@ export class AppComponent implements OnInit {
             )]],
       'check': ['', [Validators.required]],
     },
-      { validator: MustMatch('password', 'confirm password')}
+      { validator: MustMatch('password', 'confirm_password')}
     )
+  }
+  newUser: any;
+  
+  clicksub(){
+    this.newUser={
+      email: this.exform.value.email,
+      password: this.exform.value.password,
+      confirm_pass: this.exform.value.confirm_password,
+      nickname: this.exform.value.Nickname,
+      phone: this.exform.value.Phone,
+      website: this.exform.value.website
+    }
+    console.log(this.newUser);
+    this.exform.reset();
+  }
+
+
+  get email(){
+    return this.exform.get('email')
+  }
+
+  get password(){
+    return this.exform.get('password')
+  }
+
+  get confirm_pass(){
+    return this.exform.get('confirm password')
+  }
+
+  get nickname(){
+    return this.exform.get('Nickname')
+  }
+
+  get phone(){
+    return this.exform.get('Phone')
+  }
+
+  get website(){
+    return this.exform.get('website')
   }
 }
