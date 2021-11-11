@@ -40,7 +40,7 @@ export class UserEditComponent implements OnInit {
       confirm_password: this.currentPerson.confirm_pass,
       nickname: this.currentPerson.nickname,
       phone: this.currentPerson.phone,
-      website: this.currentPerson.website
+      website: this.currentPerson.website,
     }) 
   }
 
@@ -53,15 +53,15 @@ export class UserEditComponent implements OnInit {
   }
 
   get confirm_pass(){
-    return this.exform.get('confirm password')
+    return this.exform.get('confirm_password')
   }
 
   get nickname(){
-    return this.exform.get('Nickname')
+    return this.exform.get('nickname')
   }
 
   get phone(){
-    return this.exform.get('Phone')
+    return this.exform.get('phone')
   }
 
   get website(){
@@ -74,6 +74,7 @@ export class UserEditComponent implements OnInit {
     this.usersService.users = this.usersService.users.map((user: any) => {
       return user.id === this.currentPerson.id? this.updatedUser: user;
     });
+    this.usersService.currentSubject.next();
     this.usersService.updateNeeded.next();
   }
   onCancel(){

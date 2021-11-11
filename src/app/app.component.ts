@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
   }
 
   get confirm_pass(){
-    return this.exform.get('confirm password')
+    return this.exform.get('confirm_password')
   }
 
   get nickname(){
