@@ -2,15 +2,21 @@
 <h1 class="text-center pt-3 text-secondary">
     List of the Users
 </h1>
-<div class="card-grid">
+<div *ngFor="let user of users" class="card-grid">
     <div class="card card-shadow">
         <div class="header">UserName</div>
         <div class="card-body">
-            Information
+                <p>Email: {{user.email}} </p>
+                <p>Password: {{user.password}} </p>
+                <p>Nickname: {{user.nickname}} </p>
+                <p>Phone: {{user.phone}} </p>
+                <p>Website: {{user.website}} </p>
         </div>
         <div class="card-footer">
-            <button class="btn">Edit</button>
-            <button class='btn btn-delete'>Delete</button>
+            <button (click)='edit(user.id)' class="btn">Edit</button>
+            <button (click)='delete(user.id)' class='btn btn-delete'>Delete</button>
         </div>
     </div>
 </div>
+
+<app-user-edit *ngIf='currentPerson' [currentPerson]="currentPerson"></app-user-edit>

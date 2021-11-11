@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row justify-content-sm-center pt-5">
+        <div class="col-sm-6 shadow round pb-3">
+            <form [formGroup]="exform">
+                <div class="form-group">
+                    <label class="col-form-label"><small class="text-danger">*</small>
+                        E-mail:</label>
+                    <input formControlName="email" type="email" class="form-control">
+                    <small *ngIf="email?.invalid && email?.touched" class="text-danger">Invalid Email</small>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label"><small class="text-danger">*</small>
+                        Password:</label>
+                    <input formControlName="password" type="password" class="form-control">
+                    <small *ngIf="password?.invalid && password?.touched" class="text-danger">should be more than 7
+                        characters</small>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label"><small class="text-danger">*</small>
+                        Confirm Password:</label>
+                    <input formControlName="confirm_password" type="password" class="form-control">
+                    <small *ngIf="confirm_pass?.invalid && confirm_pass?.touched" class="text-danger">Password doesn't
+                        Match</small>
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label"><small class="text-danger">*</small>
+                        Nickname:</label>
+                    <input formControlName="Nickname" type="text" class="form-control">
+                    <small *ngIf="nickname?.invalid && nickname?.touched" class="text-danger">should contain English
+                        characters, numbers and -</small>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label"><small class="text-danger">*</small>
+                        Phone Number:</label>
+                    <input formControlName="Phone" type="tel" class="form-control" placeholder="+380 XXXXXXXXX">
+                    <small *ngIf="phone?.invalid && phone?.touched" class="text-danger">Invalid Phone Number</small>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label"><small class="text-danger">*</small>
+                        Website:</label>
+                    <input formControlName="website" type="url" class="form-control" placeholder="www.website.com">
+                    <small *ngIf="website?.invalid && website?.touched" class="text-danger">Invalid Website</small>
+                </div>
+
+                <br>
+                <div>
+                    <button (click)='onEdit()' [disabled]="exform.invalid"
+                        type="button" class="btn btn-primary">Save</button>
+                    <button (click)='onCancel()' [disabled]="exform.invalid" 
+                    type="button" class="btn btn-primary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
