@@ -28,8 +28,8 @@ export class UserEditComponent implements OnInit {
       email: this.currentPerson.email,
       password: this.currentPerson.password,
       confirm_password: this.currentPerson.confirm_pass,
-      Nickname: this.currentPerson.nickname,
-      Phone: this.currentPerson.phone,
+      Nickname: this.currentPerson.Nickname,
+      Phone: this.currentPerson.Phone,
       website: this.currentPerson.website
     }) 
   }
@@ -63,7 +63,8 @@ export class UserEditComponent implements OnInit {
     this.updatedUser = ({id: this.currentPerson?.id, ...this.exform.value});
     this.usersService.users = this.usersService.users.map((user: any) => {
       return user.id === this.currentPerson.id? this.updatedUser: user;
-    })
+    });
+    this.usersService.updateNeeded.next();
   }
   onCancel(){
     this.currentPerson = null;

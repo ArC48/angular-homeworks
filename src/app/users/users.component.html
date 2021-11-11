@@ -4,10 +4,10 @@
 </h1>
 <div *ngFor="let user of users" class="card-grid">
     <div class="card card-shadow">
-        <div class="header">UserName</div>
+        <div class="header">{{user.email}}</div>
         <div class="card-body">
                 <p>Email: {{user.email}} </p>
-                <p>Password: {{user.password}} </p>
+                <p>Password: {{user.password}}</p>
                 <p>Nickname: {{user.nickname}} </p>
                 <p>Phone: {{user.phone}} </p>
                 <p>Website: {{user.website}} </p>

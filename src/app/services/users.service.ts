@@ -8,6 +8,7 @@ export class UsersService {
   users: any = [];
   newUser = new Subject<any>();
   currentSubject = new Subject<any>();
+  updateNeeded = new Subject<any>();
 
 
   constructor() { }
