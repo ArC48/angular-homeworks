@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label class="col-form-label"><small class="text-danger">*</small>
                         Nickname:</label>
-                    <input formControlName="Nickname" type="text" class="form-control">
+                    <input formControlName="nickname" type="text" class="form-control">
                     <small *ngIf="nickname?.invalid && nickname?.touched" class="text-danger">should contain English
                         characters, numbers and -</small>
                 </div>
@@ -37,7 +37,7 @@
                 <div class="form-group">
                     <label class="col-form-label"><small class="text-danger">*</small>
                         Phone Number:</label>
-                    <input formControlName="Phone" type="tel" class="form-control" placeholder="+380 XXXXXXXXX">
+                    <input formControlName="phone" type="tel" class="form-control" placeholder="+380 XXXXXXXXX">
                     <small *ngIf="phone?.invalid && phone?.touched" class="text-danger">Invalid Phone Number</small>
                 </div>
 

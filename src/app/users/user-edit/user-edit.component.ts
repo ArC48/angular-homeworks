@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MustMatch } from '../../_password/matchPass';
+
 
 @Component({
   selector: 'app-user-edit',
@@ -14,22 +17,29 @@ export class UserEditComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private usersService: UsersService) { }
 
   ngOnInit(): void {
-      this.exform = this.formBuilder.group ({
-        'email' : [''],
-        'password' : [''],
-        'confirm_password' : [''],
-        'Nickname' : [''],
-        'Phone' : [''],
-        'website' : [''],
+    this.exform = this.formBuilder.group ({
+      'email' : ['', [Validators.required,
+        Validators.email]],
+      'password' : ['', 
+      [Validators.required,
+        Validators.minLength(8),
+        Validators.pattern(/^[a-z][a-z0-9]*$/i)]],
+      'confirm_password' : ['', [Validators.required]],
+      'nickname' : ['', [Validators.required,
+        Validators.pattern(/^[A-Za-z0-9-]+$/)]],
+      'phone' : ['', [Validators.required,
+        Validators.pattern(/^\+380 ?[0-9]{9}$/)]],
+      'website' : ['', [Validators.required, Validators.pattern(/^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/)]],
     },
+      { validator: MustMatch('password', 'confirm_password')}
     )
 
     this.exform.patchValue({
       email: this.currentPerson.email,
       password: this.currentPerson.password,
       confirm_password: this.currentPerson.confirm_pass,
-      Nickname: this.currentPerson.Nickname,
-      Phone: this.currentPerson.Phone,
+      nickname: this.currentPerson.nickname,
+      phone: this.currentPerson.phone,
       website: this.currentPerson.website
     }) 
   }
@@ -71,4 +81,5 @@ export class UserEditComponent implements OnInit {
     this.usersService.currentSubject.next();
   }
 }
+
 

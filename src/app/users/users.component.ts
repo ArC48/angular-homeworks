@@ -31,7 +31,7 @@ export class UsersComponent implements OnInit {
   }
 
   delete(id: any){
-    this.usersService.users = this.usersService.users.filter((user: any) => user.id !== id)[0];
+    this.usersService.users = this.usersService.users.filter((user: any) => {return user.id !== id});
     this.usersService.updateNeeded.next();
   }
 }
