@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { UsersService } from 'src/app/services/users.service';
+import { UsersService } from '../../services/users.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from '../../_password/matchPass';
 
