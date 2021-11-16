@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { UsersService } from './services/users.service';
-import { MustMatch } from './_password/matchPass';
+import { UsersService } from './homeworks/Forms/services/users.service';
+import { MustMatch } from './homeworks/Forms/_password/matchPass';
 
 @Component({
   selector: 'app-root',

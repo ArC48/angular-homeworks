@@ -1,0 +1,39 @@
+<form [formGroup]="myForm">
+    <ng-container formArrayName='currencies'>
+        <ng-container >
+            <div id='box'>
+                    <h2>Get the $um of different €urrencies</h2>
+                    <table>
+                        <tr *ngFor='let cur of currencies.controls; let idx = index' [formGroupName]='idx'>
+                            <td>
+                                <input type="number" placeholder="1" formControlName = 'input'>
+                            </td>
+                            <td>
+                                <select id="from" formControlName = 'select'>
+                                    <option *ngFor='let currencyName of currencyNames' [value]="currencyName">
+                                        {{currencyName}}
+                                    </option>
+                                </select>
+                            </td>
+                            <td>
+                                <button (click) = 'clickedDelete(idx)' class="btn delete">X</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <td>
+                            <p>result:</p>
+                        </td>
+                        <td>
+                            <input type="number" id="result">
+                        </td>
+                    </table>
+                    <table>
+                        <td>
+                            <button class="btn add" (click)='addClicked()'>add a currency</button>
+                        </td>
+                    </table>
+            </div>
+        </ng-container>
+    </ng-container>
+</form>

@@ -1,0 +1,35 @@
+<script src="https://unpkg.com/@reactivex/rxjs@version/dist/global/rxjs.umd.js"></script>
+
+
+<div id="box">
+    <h2>€urrency €onverter</h2>
+    <table>
+        <tr>
+            <td>
+                <input type="number" id="fromAmount" placeholder="1" (keyup) = 'getInputValue1()' [(ngModel)] = "currencyNumber1">
+            </td>
+            <td>
+                <select id="from" (change) = 'selectValue1($event)'>
+                    <option *ngFor='let currencyName of currencyNames' [value]="currencyName">
+                        {{currencyName}}
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <input type="number" id="toAmount" placeholder="1" (keyup) = 'getInputValue2()' [(ngModel)] = "currencyNumber2">
+            </td>
+            <td>
+                <select id="from" (change) = 'selectValue2($event)'>
+                    <option *ngFor='let currencyName of currencyNames' [value]="currencyName">
+                        {{currencyName}}
+                    </option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
+<br><br>
+<app-curr-add></app-curr-add>
