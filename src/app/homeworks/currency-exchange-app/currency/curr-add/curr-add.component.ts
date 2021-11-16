@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-curr-add',
@@ -12,6 +13,10 @@ export class CurrAddComponent implements OnInit {
   data: any;
   currencyNames: any;
   currencyNamesArray: any;
+  sum: any;
+  toCurr: string = 'GEL';
+  convertedValue: number | null = null;
+
 
   get currencies(): FormArray{
     return this.myForm.get('currencies') as FormArray;
@@ -19,7 +24,7 @@ export class CurrAddComponent implements OnInit {
 
   addClicked(){
       this.currencies.push(this.fb.group({input: 1, select: 'USD'}))
-      console.log(this.myForm)
+      console.log(this.myForm.get('currencies'))
     }
 
   clickedDelete(idx: number){
@@ -30,18 +35,49 @@ export class CurrAddComponent implements OnInit {
             private http: HttpClient) {}
 
   ngOnInit(): void {
-        this.http.get('https://api.fastforex.io/fetch-all?api_key=185f5de9b0-5bf1b970fd-r2keo4')
-    .subscribe((data: any) => {
+    this.http.get('https://api.fastforex.io/fetch-all?api_key=185f5de9b0-5bf1b970fd-r2keo4')
+      .subscribe((data: any) => {
         this.data = data.results;
         this.currencyNames = Object.keys(this.data)
       }
     )
-    this.myForm = this.fb.group({
-      currencies: this.fb.array([
-        this.fb.group({input: 1, select: 'USD'}),
-        this.fb.group({input: 1, select: 'GEL'}),
-      ])
-    })
-}
-}
 
+    this.myForm = this.fb.group({
+        currencies: this.fb.array(
+          [this.fb.group({
+            select: ['EUR', Validators.required],
+            input: [0, Validators.required],
+          })
+          ]),
+        select2: ['GEL']
+      }
+    );
+    this.myForm?.valueChanges.pipe(
+      tap(() => {
+        this.toCurr = this.myForm.get('select2')?.value;
+        for (const formGroup of this.currencies.controls) {
+          this.calculateSum(formGroup.get("select")?.value, formGroup.get("input")?.value);
+        }
+      })
+    ).subscribe()
+
+    this.myForm.get("select2")?.valueChanges.pipe(
+      tap(() => {
+        this.toCurr = this.myForm.get('select2')?.value;
+      })
+    ).subscribe()
+  }
+
+
+  calculateSum(currency: string, amount: number) {
+    this.sum = 0;
+    if (amount != 0) {
+      this.http.get(`https://api.fastforex.io/convert?from=${currency}&to=${this.toCurr}&amount=${amount}&api_key=185f5de9b0-5bf1b970fd-r2keo4`)
+        .subscribe((data: any) => {
+            this.convertedValue = data.result[Object.keys(data.result)[0]];
+            typeof this.convertedValue === 'number' ? this.sum += this.convertedValue : this.sum;
+          }, () => console.log('HTTP Error'),
+        );
+    }
+  }
+}
