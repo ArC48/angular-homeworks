@@ -22,7 +22,7 @@ export class CurrencyComponent implements OnInit {
     private http: HttpClient
   ) { }  
 
-    apiKey = '185f5de9b0-5bf1b970fd-r2keo4'
+    apiKey = '4f64fd06e5-d7d100481a-r2vgoy'
     from: any = 'USD';
     to: any = 'GEL';
     amount: any = 100;
@@ -74,7 +74,7 @@ export class CurrencyComponent implements OnInit {
     // 2nd value * 1st currency / 2nd currency = 1st value
 
   ngOnInit(): void {
-    this.http.get('https://api.fastforex.io/fetch-all?api_key=185f5de9b0-5bf1b970fd-r2keo4')
+    this.http.get(`https://api.fastforex.io/fetch-all?api_key=${this.apiKey}`)
     .subscribe((data: any) => {
         this.data = data.results;
         this.currencyNames = Object.keys(this.data)

@@ -8,6 +8,8 @@ import { CurrencyComponent } from './homeworks/currency-exchange-app/currency/cu
 import { CurrencyPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrAddComponent } from './homeworks/currency-exchange-app/currency/curr-add/curr-add.component';
+import { HttpClientComponent } from './homeworks/http-client/http-client.component';
+import { CurrentTimeService } from './services/current-time.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +17,7 @@ import { CurrAddComponent } from './homeworks/currency-exchange-app/currency/cur
     UserEditComponent,
     CurrencyComponent,
     CurrAddComponent,
+    HttpClientComponent,
   ],
 
   imports: [
@@ -24,7 +27,7 @@ import { CurrAddComponent } from './homeworks/currency-exchange-app/currency/cur
     FormsModule,
   ],
 
-  providers: [CurrencyPipe],
+  providers: [CurrencyPipe, CurrentTimeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

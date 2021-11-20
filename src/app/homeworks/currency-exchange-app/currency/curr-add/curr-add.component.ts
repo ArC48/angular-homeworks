@@ -34,8 +34,10 @@ export class CurrAddComponent implements OnInit {
   constructor(private fb: FormBuilder,
             private http: HttpClient) {}
 
+  apiKey = '4f64fd06e5-d7d100481a-r2vgoy'
+
   ngOnInit(): void {
-    this.http.get('https://api.fastforex.io/fetch-all?api_key=185f5de9b0-5bf1b970fd-r2keo4')
+    this.http.get(`https://api.fastforex.io/fetch-all?api_key=${this.apiKey}`)
       .subscribe((data: any) => {
         this.data = data.results;
         this.currencyNames = Object.keys(this.data)
@@ -72,7 +74,7 @@ export class CurrAddComponent implements OnInit {
   calculateSum(currency: string, amount: number) {
     this.sum = 0;
     if (amount != 0) {
-      this.http.get(`https://api.fastforex.io/convert?from=${currency}&to=${this.toCurr}&amount=${amount}&api_key=185f5de9b0-5bf1b970fd-r2keo4`)
+      this.http.get(`https://api.fastforex.io/convert?from=${currency}&to=${this.toCurr}&amount=${amount}&api_key=${this.apiKey}`)
         .subscribe((data: any) => {
             this.convertedValue = data.result[Object.keys(data.result)[0]];
             typeof this.convertedValue === 'number' ? this.sum += this.convertedValue : this.sum;
