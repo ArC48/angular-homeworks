@@ -122,4 +122,8 @@ select {
   background-image: linear-gradient(to top, #919191b7, rgba(255, 255, 255, 0.733) 33%);
 }
 
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
