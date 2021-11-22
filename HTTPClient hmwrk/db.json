@@ -1,0 +1,88 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Beqa Khadilashvili",
+      "age": "20",
+      "salary": "1000"
+    },
+    {
+      "id": 2,
+      "name": "Vin Diesel",
+      "age": "53",
+      "salary": "1000000"
+    },
+    {
+      "id": 3,
+      "name": "Emilia Clarke",
+      "age": "30",
+      "salary": "1200000"
+    },
+    {
+      "id": 4,
+      "name": "Anana Brekashvili",
+      "age": "21",
+      "salary": "1100"
+    },
+    {
+      "id": 5,
+      "name": "Mari Sukhiashvili",
+      "age": "19",
+      "salary": "1200"
+    },
+    {
+      "id": 6,
+      "name": "Giorgi Kakidashvili",
+      "age": "20",
+      "salary": "800"
+    },
+    {
+      "id": 7,
+      "name": "Roini Vardoshvili",
+      "age": "19",
+      "salary": "300"
+    },
+    {
+      "id": 8,
+      "name": "Sopo Omarashvili",
+      "age": "21",
+      "salary": "500"
+    },
+    {
+      "id": 9,
+      "name": "Lasha Khadilashvili",
+      "age": "23",
+      "salary": "2000"
+    },
+    {
+      "id": 10,
+      "name": "Paul Walker",
+      "age": "43",
+      "salary": "0"
+    },
+    {
+      "id": 11,
+      "name": "Tamar Mefe",
+      "age": "49",
+      "salary": "1000"
+    },
+    {
+      "id": 12,
+      "name": "Davit Agmashenebeli",
+      "age": "50",
+      "salary": "6000"
+    },
+    {
+      "id": 13,
+      "name": "Zaqaria Mxargrdzeli",
+      "age": "45",
+      "salary": "500"
+    },
+    {
+      "id": 14,
+      "name": "Nikola Tesla",
+      "age": "90",
+      "salary": "23400"
+    }
+  ]
+}

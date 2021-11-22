@@ -8,8 +8,8 @@ import { CurrencyComponent } from './homeworks/currency-exchange-app/currency/cu
 import { CurrencyPipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrAddComponent } from './homeworks/currency-exchange-app/currency/curr-add/curr-add.component';
-import { HttpClientComponent } from './homeworks/http-client/http-client.component';
 import { CurrentTimeService } from './services/current-time.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +17,6 @@ import { CurrentTimeService } from './services/current-time.service';
     UserEditComponent,
     CurrencyComponent,
     CurrAddComponent,
-    HttpClientComponent,
   ],
 
   imports: [
@@ -25,6 +24,7 @@ import { CurrentTimeService } from './services/current-time.service';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
   ],
 
   providers: [CurrencyPipe, CurrentTimeService],
