@@ -1,0 +1,11 @@
+
+<nav class="navbar">
+    <div class="container-fluid">
+        <h1 style="color: rgb(20, 17, 5);">Home Page</h1>
+        <div class="d-flex">
+            <button class="popup-button" routerLink="/login">Log Out</button>
+        </div>
+    </div>
+</nav>
+
+<app-user [EmployeeData]="employeeData" (employee)=update($event)></app-user>

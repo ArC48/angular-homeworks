@@ -1,0 +1,27 @@
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">User Id</th>
+            <th scope="col">email</th>
+            <th scope="col">Name</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Age</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of EmployeeData | paginate: {itemsPerPage:itemPerPages,currentPage:page}">
+            <td>{{employee.id}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.name}}</td>
+            <td>${{employee.salary}}</td>
+            <td>{{employee.age}}</td>
+            <td>
+                <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="Edit_Employee(employee)">Edit</button>
+                <button (click)=" Delete_Employee(employee)" class="btn btn-danger mx-3">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+    <pagination-controls class="pagination d-flex justify-content-lg-end" (pageChange)="page = $event">
+    </pagination-controls>
+</table>

@@ -1,0 +1,55 @@
+h1 {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-body {
+    form {
+        .mb-3 {
+            .ng-invalid {
+                border: 1px solid red;
+                outline: none;
+            }
+            .ng-valid {
+                border: 1px solid green;
+                outline: none;
+            }
+        }
+    }
+}
+
+.navbar{
+background-color: #8EC5FC;
+background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+}
+
+.popup-button {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: white;
+    
+    //Button shape & animation
+    border-radius: 5px;
+    margin: 2px;
+    border: 2px;
+    padding: 1em 1em;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    background-image: linear-gradient(to right, #895cf2 0%, #ffabf4 50%, #895cf2 100%);
+    transition: 0.5s;
+    &:hover {
+    background-position: right center;
+    }  
+}

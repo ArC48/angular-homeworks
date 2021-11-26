@@ -1,0 +1,68 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "email": "beqa123@gmail.com",
+      "password": "password",
+      "name": "Beqa Khadilashvili",
+      "age": "20",
+      "salary": "1000"
+    },
+    {
+      "id": 2,
+      "email": "fastfur@gmail.com",
+      "password": "mustang123",
+      "name": "Vin Diesel",
+      "age": "53",
+      "salary": "1000000"
+    },
+    {
+      "id": 3,
+      "email": "khalesse@gmail.com",
+      "password": "dragons3",
+      "name": "Emilia Clarke",
+      "age": "30",
+      "salary": "1200000"
+    },
+    {
+      "id": 4,
+      "email": "paul123@gmail.com",
+      "password": "skyline40",
+      "name": "Paul Walker",
+      "age": "43",
+      "salary": "0"
+    },
+    {
+      "id": 11,
+      "email": "tamari@gmail.com",
+      "password": "shota777",
+      "name": "Tamar Mefe",
+      "age": "49",
+      "salary": "1000"
+    },
+    {
+      "id": 5,
+      "email": "davit4@gmail.com",
+      "password": "goldenage",
+      "name": "Davit Agmashenebeli",
+      "age": "50",
+      "salary": "6000"
+    },
+    {
+      "id": 6,
+      "email": "zaqaria@gmail.com",
+      "password": "zaqaria",
+      "name": "Zaqaria Mxargrdzeli",
+      "age": "45",
+      "salary": "500"
+    },
+    {
+      "id": 7,
+      "email": "tesla@gmail.com",
+      "password": "thunder",
+      "name": "Nikola Tesla",
+      "age": "90",
+      "salary": "23400"
+    }
+  ]
+}
