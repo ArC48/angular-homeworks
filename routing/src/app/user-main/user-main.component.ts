@@ -28,6 +28,8 @@ export class UsermainComponent implements OnInit {
       name: ['',[Validators.required,Validators.pattern(/^[A-Za-z ]+$/)]],
       salary: ['',[Validators.required,Validators.pattern(/^\d+$/)]],
       age: ['',[Validators.required,Validators.pattern(/^\d+$/)]],
+      email: ['',[Validators.required, Validators.required]],
+      password: ['',[Validators.required,Validators.required]],
     })
 
   }
@@ -57,6 +59,8 @@ export class UsermainComponent implements OnInit {
     this.form.controls['name'].setValue(employee.name)
     this.form.controls['salary'].setValue(employee.salary)
     this.form.controls['age'].setValue(employee.age)
+    this.form.controls['email'].setValue(employee.email)
+    this.form.controls['password'].setValue(employee.password)
     this.showAdd = false;
     this.showUpdate = true;
   }
@@ -64,6 +68,8 @@ export class UsermainComponent implements OnInit {
     this.employeesOBJ.name = this.form.value.name;
     this.employeesOBJ.salary = `${this.form.value.salary}`;
     this.employeesOBJ.age = `${this.form.value.age}`;
+    this.employeesOBJ.email = `${this.form.value.email}`;
+    this.employeesOBJ.password = `${this.form.value.password}`;
     this._apiService.Update_Data_to_server(this.employeesOBJ,this.employeesOBJ.id).subscribe(res=>{
       let cancel = document.getElementById('cancel')
       cancel?.click();

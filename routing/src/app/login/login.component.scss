@@ -27,3 +27,19 @@ body{
 input{
     width: 100%;
 }
+
+.form-control.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+
+.form-control.ng-touched.ng-valid{
+    border: 1px solid green;
+}
+
+.star-red{
+    color: rgb(255, 0, 0) !important;
+}
+
+.star-green{
+    color: green !important;
+}

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApiService } from 'src/app/shared/api.service';
+import { loggedService } from 'src/app/shared/logged.service';
 import { EmployeeModel } from '../user-dashboard-interface';
 
 @Component({
@@ -16,9 +17,10 @@ export class UserComponent implements OnInit {
   // --- pagination ---//
   page: number = 1;
   itemPerPages: number = 8;
+  currentUser: any;
 
 
-  constructor(private _api: ApiService) { }
+  constructor(private _api: ApiService,private authentification: loggedService) { }
 
   ngOnInit(): void {
     this.getAllEmploee()
@@ -27,6 +29,7 @@ export class UserComponent implements OnInit {
   getAllEmploee(){
     this._api.Get_Data_From_Server()
     .subscribe(res=>{
+      this.currentUser = this.authentification.loggedUser
       this.EmployeeData = res
       
     })

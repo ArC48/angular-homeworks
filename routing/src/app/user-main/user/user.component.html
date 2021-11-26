@@ -17,8 +17,8 @@
             <td>${{employee.salary}}</td>
             <td>{{employee.age}}</td>
             <td>
-                <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="Edit_Employee(employee)">Edit</button>
-                <button (click)=" Delete_Employee(employee)" class="btn btn-danger mx-3">Delete</button>
+                <button *ngIf="currentUser.id === employee.id && currentUser.password === employee.password && currentUser.email === employee.email" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="Edit_Employee(employee)">Edit</button>
+                <button *ngIf="currentUser.id === employee.id && currentUser.password === employee.password && currentUser.email === employee.email" (click)=" Delete_Employee(employee)" class="btn btn-danger mx-3">Delete</button>
             </td>
         </tr>
     </tbody>

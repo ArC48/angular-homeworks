@@ -9,25 +9,34 @@ import { Router } from "@angular/router";
 
 export class loggedService{
     loggedUser: any
+
     public loginForm!: FormGroup
 
 
+    token: boolean = false
+
     constructor(private http: HttpClient, private router: Router){}
 
-    login(form:any){
+    rightToActive(){
+        return this.token
+    }
+
+    login(form: any){
         this.http.get<any>('http://localhost:3000/data')
         .subscribe(res=>{
         const user = res.find((a:any)=>{
-            return a.email === this.loginForm.value.email &&
-        a.password === this.loginForm.value.password
+            return a.email === form.email && a.password === form.password
         });
         if(user){
-        this.loggedUser = user
-        this.loginForm.reset();
-        this.router.navigate(['user-main'])
+            this.token = true
+            this.loggedUser = user
+            this.router.navigate(['user-main'])
+        }else if(!user){
+            alert('User Does not Exist!')
         }
-    },err=>{
-        alert('something went wrong, try again')
-    })
+        },err=>{
+            alert('something went wrong, try again')
+        })
+        
     }
 }
