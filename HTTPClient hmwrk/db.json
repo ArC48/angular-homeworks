@@ -4,31 +4,25 @@
       "id": 1,
       "name": "Beqa Khadilashvili",
       "age": "20",
-      "salary": "1000"
+      "salary": "100"
     },
     {
       "id": 2,
       "name": "Vin Diesel",
       "age": "53",
-      "salary": "1000000"
-    },
-    {
-      "id": 3,
-      "name": "Emilia Clarke",
-      "age": "30",
-      "salary": "1200000"
+      "salary": "300"
     },
     {
       "id": 4,
       "name": "Anana Brekashvili",
       "age": "21",
-      "salary": "1100"
+      "salary": "900"
     },
     {
       "id": 5,
       "name": "Mari Sukhiashvili",
       "age": "19",
-      "salary": "1200"
+      "salary": "120"
     },
     {
       "id": 6,
@@ -39,7 +33,7 @@
     {
       "id": 7,
       "name": "Roini Vardoshvili",
-      "age": "19",
+      "age": "20",
       "salary": "300"
     },
     {
@@ -47,12 +41,6 @@
       "name": "Sopo Omarashvili",
       "age": "21",
       "salary": "500"
-    },
-    {
-      "id": 9,
-      "name": "Lasha Khadilashvili",
-      "age": "23",
-      "salary": "2000"
     },
     {
       "id": 10,
@@ -82,7 +70,7 @@
       "id": 14,
       "name": "Nikola Tesla",
       "age": "90",
-      "salary": "23400"
+      "salary": "2340"
     }
   ]
 }

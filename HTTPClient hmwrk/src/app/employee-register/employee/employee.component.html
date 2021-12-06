@@ -1,4 +1,4 @@
-<table class="table mt-3">
+<table class="table mt-3" class='container'>
     <thead>
         <tr>
             <th scope="col">Employee Id</th>
@@ -9,17 +9,40 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of EmployeeData | paginate: {itemsPerPage:itemPerPages,currentPage:page}">
+        <tr [@fadeInOut] *ngFor="let employee of EmployeeData | paginate: {itemsPerPage:itemPerPages,currentPage:page}">
             <td>{{employee.id}}</td>
             <td>{{employee.name}}</td>
             <td>${{employee.salary}}</td>
-            <td>{{employee.age}}</td>
+            <td class="age">{{employee.age}}</td>
             <td>
-                <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="Edit_Employee(employee)">Edit</button>
-                <button (click)=" Delete_Employee(employee)" class="btn btn-danger mx-3">Delete</button>
+                <button (click)="changeStyle()" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" (click)="Edit_Employee(employee)">Edit</button>
+                <button data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="delete_from_server(employee)" class="btn btn-danger mx-3">Delete</button>
             </td>
+
         </tr>
     </tbody>
+    <mat-progress-bar mode="query"></mat-progress-bar>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+      [@fadeInOut]>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form>
+              <p>Are you sure you want to delete this user?</p>
+            </form>
+          </div>
+          <div class="modal-footer">
+
+            <button id="dismiss" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button (click)="delete()" type="button" class="btn btn-primary"
+              >Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <pagination-controls class="pagination d-flex justify-content-lg-end" (pageChange)="page = $event">
     </pagination-controls>
 </table>
+

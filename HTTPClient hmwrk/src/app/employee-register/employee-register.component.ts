@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
@@ -6,7 +7,15 @@ import { EmployeeModel } from './employee-dashboard-interface';
 @Component({
   selector: 'app-employee-register',
   templateUrl: './employee-register.component.html',
-  styleUrls: ['./employee-register.component.scss']
+  styleUrls: ['./employee-register.component.scss'],
+    animations:[
+    trigger('fadeInOut',[
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void => *', animate(2000))
+    ])
+  ]
 })
 export class EmployeeRegisterComponent implements OnInit {
 
@@ -19,8 +28,8 @@ export class EmployeeRegisterComponent implements OnInit {
   showAdd !: boolean
   showUpdate !: boolean
 
-  constructor(private fb: FormBuilder, private _apiService: ApiService) { 
-  
+  constructor(private fb: FormBuilder, private _apiService: ApiService) {
+
   }
 
   ngOnInit(): void {
@@ -36,7 +45,7 @@ export class EmployeeRegisterComponent implements OnInit {
     this.employeesOBJ.name = this.form.value.name;
     this.employeesOBJ.salary = `${this.form.value.salary}`;
     this.employeesOBJ.age = `${this.form.value.age}`;
-    
+
     this._apiService.Send_Data_To_Server(this.employeesOBJ)
     .subscribe(res =>{
       let cancel = document.getElementById('cancel')
@@ -45,7 +54,7 @@ export class EmployeeRegisterComponent implements OnInit {
       .subscribe(response =>{
         this.employeeData = response
       })
-      this.form.reset();  
+      this.form.reset();
     },
     error =>{
       alert('Operation failed, try again')
@@ -71,8 +80,8 @@ export class EmployeeRegisterComponent implements OnInit {
       .subscribe(response =>{
         this.employeeData = response
       })
-      this.form.reset();  
-      
+      this.form.reset();
+
     })
   }
 
