@@ -3,14 +3,8 @@
     {
       "id": 1,
       "name": "Beqa Khadilashvili",
-      "age": "20",
-      "salary": "100"
-    },
-    {
-      "id": 2,
-      "name": "Vin Diesel",
-      "age": "53",
-      "salary": "300"
+      "age": "21",
+      "salary": "1000"
     },
     {
       "id": 4,
@@ -40,7 +34,7 @@
       "id": 8,
       "name": "Sopo Omarashvili",
       "age": "21",
-      "salary": "500"
+      "salary": "69"
     },
     {
       "id": 10,
@@ -71,6 +65,12 @@
       "name": "Nikola Tesla",
       "age": "90",
       "salary": "2340"
+    },
+    {
+      "id": 15,
+      "name": "Sofiko Omariani",
+      "age": "13",
+      "salary": "200"
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, animateChild, query, state, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApiService } from 'src/app/shared/api.service';
 import { EmployeeModel } from '../employee-dashboard-interface';
@@ -14,29 +14,20 @@ import { EmployeeModel } from '../employee-dashboard-interface';
       })),
       transition('void => *', animate(2000))
     ]),
-    trigger('customAnimation',[
-      state('a', style({
-        height: '100px',
-        width: '100px'
-      })),
-      state('b', style({
-        display: 'none'
-      })),
-      transition('a => b', animate(0)),
-      transition('b => a', animate(0))
-    ]),
-    trigger('popupAnimation ',[
-      state('open', style({
-        height: '100px',
-        width: '200px'
-      })),
-      state('closed', style({
-        display: 'none'
-      })),
-      transition('open => closed', animate(2000)),
-      transition('closed => open', animate(2000))
+    trigger("modalView",[
+      transition("void => 0", []),
+      transition(":enter, :leave", [
+        query(
+          "@*", animateChild(),
+          {
+            limit: 1,
+            optional: true
+          }
+        )
+      ]),
+      transition("* <=> *", [])
     ])
-  ]
+]
 })
 export class EmployeeComponent implements OnInit {
 

@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,9 +8,9 @@ import { EmployeeRegisterComponent } from './employee-register/employee-register
 import { EmployeeComponent } from './employee-register/employee/employee.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatNativeDateModule } from '@angular/material/core';
+import { IntercaptorService } from './shared/intercaptor.service';
 
 
 @NgModule({
@@ -29,7 +29,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatProgressBarModule,
     MatNativeDateModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: IntercaptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
