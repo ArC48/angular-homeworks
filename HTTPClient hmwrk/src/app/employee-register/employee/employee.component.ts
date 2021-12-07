@@ -14,18 +14,28 @@ import { EmployeeModel } from '../employee-dashboard-interface';
       })),
       transition('void => *', animate(2000))
     ]),
-    trigger("modalView",[
-      transition("void => 0", []),
-      transition(":enter, :leave", [
-        query(
-          "@*", animateChild(),
-          {
-            limit: 1,
-            optional: true
-          }
-        )
-      ]),
-      transition("* <=> *", [])
+    trigger('popOverState', [
+      state('show', style({
+        opacity: 1,
+        position: 'fixed',
+        left: '50%',
+        top: '30%',
+        transform: 'translate(-50%, -50%)',
+        height: '10rem',
+        width: '400px',
+        backgroundColor:'#89c2d9',
+        borderRadius: '15px',
+        zIndex: 2,
+      })),
+      state('hide',   style({
+        opacity: 0,
+        position: 'fixed',
+        left: '50%',
+        top: '30%',
+        transform: 'translate(-50%, -50%)',
+      })),
+      transition('show => hide', animate('600ms')),
+      transition('hide => show', animate('600ms'))
     ])
 ]
 })
@@ -39,6 +49,7 @@ export class EmployeeComponent implements OnInit {
   page: number = 1;
   itemPerPages: number = 8;
   private employeee: any
+  modalShow: any = 'show'
 
   constructor(private _api: ApiService) { }
 
@@ -58,6 +69,11 @@ export class EmployeeComponent implements OnInit {
       this.EmployeeData = res
 
     })
+  }
+
+
+  get stateName() {
+    return this.modalShow ? 'show' : 'hide'
   }
 
 

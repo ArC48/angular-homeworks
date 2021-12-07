@@ -65,12 +65,6 @@
       "name": "Nikola Tesla",
       "age": "90",
       "salary": "2340"
-    },
-    {
-      "id": 15,
-      "name": "Sofiko Omariani",
-      "age": "13",
-      "salary": "200"
     }
   ]
 }

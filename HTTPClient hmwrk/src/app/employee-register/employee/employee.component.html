@@ -21,9 +21,9 @@
 
         </tr>
     </tbody>
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" [@fadeInOut]>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content custom-modal" [@modalView]>
+            <div class="modal-content custom-modal" [@popOverState]="stateName">
                 <div class="modal-body custom-modal">
                     <form>
                         <p>Are you sure you want to delete this user?</p>
