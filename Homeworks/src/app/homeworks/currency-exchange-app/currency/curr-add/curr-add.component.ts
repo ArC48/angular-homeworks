@@ -34,7 +34,7 @@ export class CurrAddComponent implements OnInit {
   constructor(private fb: FormBuilder,
             private http: HttpClient) {}
 
-  apiKey = '4f64fd06e5-d7d100481a-r2vgoy'
+  apiKey = '4995da5ba9-9952134688-rb01ff' // valid for a few weeks only
 
   ngOnInit(): void {
     this.http.get(`https://api.fastforex.io/fetch-all?api_key=${this.apiKey}`)
